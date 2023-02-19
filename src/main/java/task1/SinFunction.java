@@ -11,10 +11,11 @@ public class SinFunction {
         double ans = 0;
         double i = 0;
         do {
-            tmp = Math.pow(-1, i) * Math.pow(x, 2 * i + 1) / fact(2 * i + 1);
+            tmp = Math.pow(-1, i) * Math.pow(x, (2 * i + 1)) / fact(2 * i + 1);
             ans += tmp;
+            i++;
         }
-        while (tmp > 0.001);
+        while (Math.abs(tmp) > 0.001);
         return ans;
     }
 }
