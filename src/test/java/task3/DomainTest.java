@@ -27,60 +27,70 @@ public class DomainTest {
 
     @Test
     public void craterCheck() {
-        assertEquals(crater.getDiameter(), 235);
+        assertEquals(235, crater.getDiameter());
+        crater.setDiameter(13);
+        assertEquals(13, crater.getDiameter());
     }
 
     @Test
     public void mountainCheck() {
-        assertEquals(mountain.getShape(), "Кольцо");
-        assertEquals(mountain.getName(), "Гора");
+        assertEquals("Кольцо", mountain.getShape());
+        assertEquals("Гора", mountain.getName());
+        assertEquals(mountain.getCrater(), crater);
+        mountain.setName("Перевал");
+        mountain.setShape("Круг");
+        mountain.setCrater(crater);
+        assertEquals("Перевал", mountain.getName());
+        assertEquals("Круг", mountain.getShape());
         assertEquals(mountain.getCrater(), crater);
     }
 
     @Test
     public void peopleCheck() {
-        assertEquals(person1.getName(), "Чел0");
-        assertEquals(person1.getState(), "Undefined");
+        assertEquals("Чел0", person1.getName());
+        assertEquals("Undefined", person1.getState());
         person1.walk();
-        assertEquals(person1.getState(), "Walking");
+        assertEquals("Walking", person1.getState());
         person1.stop();
-        assertEquals(person1.getState(), "Standing");
+        assertEquals("Standing", person1.getState());
         person1.think(meatPiece1);
-        assertEquals(person1.getState(), "Shocked");
+        assertEquals("Shocked", person1.getState());
         person1.think(randomPiece);
-        assertEquals(person1.getState(), "Normal");
+        assertEquals("Normal", person1.getState());
         person1.think(meatPiece2);
-        assertEquals(person1.getState(), "Shocked");
+        assertEquals("Shocked", person1.getState());
 
-        assertEquals(person2.getName(), "Чел1");
-        assertEquals(person2.getState(), "Undefined");
+        person2.setName("Чел2");
+        assertEquals("Чел2", person2.getName());
+        assertEquals("Undefined", person2.getState());
         person2.walk();
-        assertEquals(person2.getState(), "Walking");
+        assertEquals("Walking", person2.getState());
         person2.stop();
-        assertEquals(person2.getState(), "Standing");
+        assertEquals("Standing", person2.getState());
         person2.think(meatPiece1);
-        assertEquals(person2.getState(), "Shocked");
+        assertEquals("Shocked", person2.getState());
         person2.think(randomPiece);
-        assertEquals(person2.getState(), "Normal");
+        assertEquals("Normal", person2.getState());
         person2.think(meatPiece2);
-        assertEquals(person2.getState(), "Shocked");
+        assertEquals("Shocked", person2.getState());
     }
 
     @Test
     public void pieceCheck() {
         meatPiece1.setState();
-        assertEquals(meatPiece1.getMass(), 23);
-        assertEquals(meatPiece1.getColor(), "Black and red");
-        assertEquals(meatPiece1.getState(), "Wet");
+        assertEquals(23, meatPiece1.getMass());
+        assertEquals("Black and red", meatPiece1.getColor());
+        assertEquals("Wet", meatPiece1.getState());
 
-        meatPiece2.setState();
-        assertEquals(meatPiece2.getMass(), 10);
-        assertEquals(meatPiece2.getColor(), "Black and red");
-        assertEquals(meatPiece2.getState(), "Wet");
+        meatPiece2.setColor("red");
+        meatPiece2.setMass(11);
+        assertEquals(11, meatPiece2.getMass());
+        assertEquals("red", meatPiece2.getColor());
+        assertNull(meatPiece2.getState());
 
         randomPiece.setState();
-        assertEquals(randomPiece.getMass(), 999999);
-        assertEquals(randomPiece.getColor(), "Random");
-        assertEquals(randomPiece.getState(), "...");
+        assertEquals(999999, randomPiece.getMass());
+        assertEquals("Random", randomPiece.getColor());
+        assertEquals("...", randomPiece.getState());
     }
 }
