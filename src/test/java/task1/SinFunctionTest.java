@@ -47,19 +47,19 @@ public class SinFunctionTest {
     @ParameterizedTest
     @ValueSource(doubles = {-Math.PI, -Math.PI - 0.001, -Math.PI + 0.001})
     public void minusPICheck(double value) {
-        Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps * 5);
+        Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {2 * Math.PI, 2 * Math.PI + 0.001, 2 * Math.PI - 0.001})
+    @ValueSource(doubles = {Math.PI/2.0,  Math.PI/2.0 + 0.001, Math.PI/2.0 - 0.001})
     public void plus2PICheck(double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {-2 * Math.PI, -2 * Math.PI - 0.001, -2 * Math.PI + 0.001})
+    @ValueSource(doubles = {-Math.PI/2.0, -Math.PI/2.0 - 0.001, -Math.PI/2.0 + 0.001})
     public void minus2PICheck(double value) {
-        Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps * 5);
+        Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
 }
