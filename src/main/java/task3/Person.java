@@ -4,7 +4,7 @@ public class Person {
     private String name;
     private String state;
 
-    public Person(String name) {
+    public Person(final String name) {
         this.name = name;
         this.state = "Undefined";
     }
@@ -13,7 +13,7 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -22,21 +22,17 @@ public class Person {
     }
 
     public void walk() {
-        System.out.println(this.name + " is walking...");
         this.state = "Walking";
     }
 
     public void stop() {
-        System.out.println(this.name + " stopped walking.");
         this.state = "Standing";
     }
 
-    public void think(AbstractPiece piece) {
+    public void think(final AbstractPiece piece) {
         if (piece instanceof MeatPiece) {
-            System.out.println(this.name + " realizes that the piece is meat...");
             this.state = "Shocked";
         } else {
-            System.out.println("Nothing...");
             this.state = "Normal";
         }
     }

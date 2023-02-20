@@ -2,27 +2,28 @@ package task2;
 
 import java.util.*;
 
-public class Tree {
-    private final ArrayList<ArrayList<Boolean>> tree;
-    private ArrayList<Integer> path = null;
+public class BfsTree {
+    private final List<List<Boolean>> tree;
+    private List<Integer> path;
 
-    public Tree(ArrayList<ArrayList<Boolean>> tree) {
-        this.tree = tree;
+    public BfsTree(final List<List<Boolean>> bfsTree) {
+        this.tree = bfsTree;
     }
 
-    public ArrayList<Boolean> bfs(int n) {
-        ArrayList<Boolean> v = new ArrayList<>();
-        for (int i = 0; i < tree.size(); i++) {
+    public List<Boolean> bfs(final int n) {
+        final List<Boolean> v = new ArrayList<>();
+        for (final List<Boolean> i : tree) {
+            i.get(0);
             v.add(false);
         }
         path = new ArrayList<>();
 
-        ArrayList<Integer> next = new ArrayList<>();
+        final List<Integer> next = new ArrayList<>();
 
         next.add(n);
 
         while (!next.isEmpty()) {
-            int x = next.get(0);
+            final int x = next.get(0);
             if (!v.get(x)) {
                 path.add(x);
                 v.set(x, true);
@@ -39,7 +40,7 @@ public class Tree {
         return v;
     }
 
-    public ArrayList<Integer> getPath() {
+    public List<Integer> getPath() {
         return path;
     }
 }

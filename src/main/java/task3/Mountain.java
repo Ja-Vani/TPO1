@@ -5,7 +5,7 @@ public class Mountain {
     private String shape;
     private Crater crater;
 
-    public Mountain(String name, String shape, Crater crater) {
+    public Mountain(final String name, final String shape, final Crater crater) {
         this.name = name;
         this.shape = shape;
         this.crater = crater;
@@ -15,7 +15,7 @@ public class Mountain {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -23,7 +23,7 @@ public class Mountain {
         return shape;
     }
 
-    public void setShape(String shape) {
+    public void setShape(final String shape) {
         this.shape = shape;
     }
 
@@ -31,7 +31,7 @@ public class Mountain {
         return crater;
     }
 
-    public void setCrater(Crater crater) {
+    public void setCrater(final Crater crater) {
         this.crater = crater;
     }
 }

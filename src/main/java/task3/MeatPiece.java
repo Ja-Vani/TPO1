@@ -1,7 +1,7 @@
 package task3;
 
 public class MeatPiece extends AbstractPiece {
-    public MeatPiece(int mass) {
+    public MeatPiece(final int mass) {
         super(mass, "Black and red");
     }
 

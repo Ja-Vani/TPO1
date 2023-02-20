@@ -5,7 +5,7 @@ abstract public class AbstractPiece {
     private String color;
     protected String state;
 
-    public AbstractPiece(int mass, String color) {
+    public AbstractPiece(final int mass, final String color) {
         this.mass = mass;
         this.color = color;
     }
@@ -14,7 +14,7 @@ abstract public class AbstractPiece {
         return mass;
     }
 
-    public void setMass(int mass) {
+    public void setMass(final int mass) {
         this.mass = mass;
     }
 
@@ -22,7 +22,7 @@ abstract public class AbstractPiece {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(final String color) {
         this.color = color;
     }
 

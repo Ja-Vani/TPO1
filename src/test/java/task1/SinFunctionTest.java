@@ -10,55 +10,55 @@ public class SinFunctionTest {
 
     @ParameterizedTest
     @ValueSource(doubles = {0.0, 0.001, -0.001})
-    public void zeroCheck(double value) {
+    public void zeroCheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {-0.01, -0.1})
-    public void negativeZeroCloseCheck(double value) {
+    public void negativeZeroCloseCheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {0.01, 0.1})
-    public void positiveZeroCloseCheck(double value) {
+    public void positiveZeroCloseCheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {-1.1, -10.0})
-    public void negativeCheck(double value) {
+    public void negativeCheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {1.1, 10.0})
-    public void positiveCheck(double value) {
+    public void positiveCheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {Math.PI, Math.PI + 0.001, Math.PI - 0.001})
-    public void plusPICheck(double value) {
+    public void plusPICheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {-Math.PI, -Math.PI - 0.001, -Math.PI + 0.001})
-    public void minusPICheck(double value) {
+    public void minusPICheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {Math.PI/2.0,  Math.PI/2.0 + 0.001, Math.PI/2.0 - 0.001})
-    public void plus2PICheck(double value) {
+    public void plus2PICheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {-Math.PI/2.0, -Math.PI/2.0 - 0.001, -Math.PI/2.0 + 0.001})
-    public void minus2PICheck(double value) {
+    public void minus2PICheck(final double value) {
         Assertions.assertEquals(Math.sin(value), SinFunction.sin(value), eps);
     }
 
