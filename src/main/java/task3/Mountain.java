@@ -1,9 +1,9 @@
 package task3;
 
 public class Mountain {
-    private String name;
-    private String shape;
-    private Crater crater;
+    final private String name;
+    final private String shape;
+    final private Crater crater;
 
     public Mountain(final String name, final String shape, final Crater crater) {
         this.name = name;
@@ -15,23 +15,11 @@ public class Mountain {
         return name;
     }
 
-    public void setName(final String name) {
-        this.name = name;
-    }
-
     public String getShape() {
         return shape;
     }
 
-    public void setShape(final String shape) {
-        this.shape = shape;
-    }
-
     public Crater getCrater() {
         return crater;
-    }
-
-    public void setCrater(final Crater crater) {
-        this.crater = crater;
     }
 }

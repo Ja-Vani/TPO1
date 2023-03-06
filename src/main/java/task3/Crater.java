@@ -1,7 +1,7 @@
 package task3;
 
 public class Crater {
-    private int diameter;
+    final private int diameter;
 
     public Crater(final int diameter) {
         this.diameter = diameter;
@@ -9,9 +9,5 @@ public class Crater {
 
     public int getDiameter() {
         return diameter;
-    }
-
-    public void setDiameter(final int diameter) {
-        this.diameter = diameter;
     }
 }

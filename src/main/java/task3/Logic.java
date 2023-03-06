@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Logic {
-    private Person person1;
-    private Person person2;
-    private Mountain mountain;
-    private List<AbstractPiece> pieces;
+    final private Person person1;
+    final private Person person2;
+    final private Mountain mountain;
+    final private List<AbstractPiece> pieces;
 
     public Logic() {
         person1 = new Person("Чел0");
         person2 = new Person("Чел1");
-        Crater crater = new Crater(235);
+        final Crater crater = new Crater(235);
         mountain = new Mountain("Гора", "Кольцо", crater);
-        pieces = new ArrayList<>(List.of(new MeatPiece(23), new MeatPiece(10), new RandomPiece(999999)));
+        pieces = new ArrayList<>(List.of(new MeatPiece(23), new MeatPiece(10), new RandomPiece(999_999)));
+        for(final AbstractPiece piece: pieces){
+            piece.setState();
+        }
     }
 
     public Logic(final Person person1, final Person person2, final Mountain mountain, final List<AbstractPiece> pieces) {
@@ -39,24 +42,25 @@ public class Logic {
     public String checkMount() {
         String info = "";
         if (mountain.getCrater() != null) {
-            info = " with crater diameter " + mountain.getCrater().getDiameter();
+            info = mountain.getName() + " with crater diameter " + mountain.getCrater().getDiameter();
         }
         return walkAll() + " and saw " + mountain.getShape() + info;
     }
 
     public String checkPieces() {
-        String info = "";
+        final StringBuilder builder = new StringBuilder(32);
 
-        for (AbstractPiece piece : pieces) {
+        for (final AbstractPiece piece : pieces) {
             person1.think(piece);
             person2.think(piece);
-            if (person1.getState().equals("Shocked")) {
-                info += "Meat is " + piece.getState() + ". ";
+
+            if ("Shocked".equals(person1.getState())) {
+                builder.append("Meat is " + piece.getState() + " color " + piece.getColor() + " mass " + piece.getMass() + ". ");
             } else {
-                info += "Piece is " + piece.getState() + ". ";
+                builder.append("Piece is " + piece.getState() + " color " + piece.getColor() + " mass " + piece.getMass() + ". ");
             }
         }
 
-        return stopAll() + " and thinking " + info;
+        return stopAll() + " and thinking " + builder.toString();
     }
 }

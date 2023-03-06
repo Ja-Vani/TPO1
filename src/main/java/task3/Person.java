@@ -1,7 +1,7 @@
 package task3;
 
 public class Person {
-    private String name;
+    final private String name;
     private String state;
 
     public Person(final String name) {
@@ -11,10 +11,6 @@ public class Person {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(final String name) {
-        this.name = name;
     }
 
     public String getState() {
